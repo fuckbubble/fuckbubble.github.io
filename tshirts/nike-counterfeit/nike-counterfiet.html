@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>n*ke-counterfeit - dotcombubble</title>
+  <link rel="stylesheet" href="../../styles.css"> 
+  
+</head>
+<body>
+  
+    <header>
+        <div id="dwm-bar">
+          <div>///</div>
+          <div id="clock"></div>
+        </div>
+        
+        <div id="logo">
+          <a href="../../index.html">
+          <img src="../../logo.gif" alt="Logo" width="300"></a>
+        </div>
+      
+      </header>
+  <main>
+    <div class="slideshow-container">
+      <!-- Slider with arrow navigation -->
+      <div class="slides">
+        <div class="slide">
+          <img src="nike-black-front.png" alt="n*ke-counterfeit">
+        </div>
+        <div class="slide">
+          <img src="nike-black-back.png" alt="n*ke-counterfeit">
+        </div>
+        <div class="slide">
+          <img src="nike-white-front.png" alt="n*ke-counterfeit">
+        </div>
+        <div class="slide">
+          <img src="nike-white-back.png" alt="n*ke-counterfeit">
+        </div>
+        <!-- Add more slides for other products -->
+      </div>
+
+      <!-- Arrow buttons for navigation -->
+      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+      <!-- Product Information -->
+      <div class="product-info">
+        <h2>n*ke-counterfeit</h2>
+        <p>200 GSM <br> 100% cotton</p>
+        <p>Price: ₹899.00</p>
+        
+      </div>
+    </div>
+  </main>
+  <script src="../../cock.js"></script>
+  <footer>
+    <div id="instagram-icon">
+      <a href="https://www.instagram.com/dotcombubble_/" target="_blank">
+        <img src="../../instagram.png" alt="Instagram">
+      </a>
+    </div>
+  </footer>
+
+  <button onclick="openModal()"><img src="../../buynow2.gif" alt="Buy Now"></button>
+
+  <div id="myModal" class="modal">
+      <div class="modal-content">
+          <span onclick="closeModal()" class="close" style="position: absolute; top: 5px; right: 5px; cursor: pointer;">&times;</span>
+          <h2>select Size:</h2>
+          <input type="radio" id="sizeS" name="size" value="S">
+          <label for="sizeS">S</label>
+          <input type="radio" id="sizeM" name="size" value="M">
+          <label for="sizeM">M</label>
+          <input type="radio" id="sizeL" name="size" value="L">
+          <label for="sizeL">L</label>
+          <input type="radio" id="sizeXL" name="size" value="XL">
+          <label for="sizeXL">XL</label>
+          
+          <h2>select Color:</h2>
+          <input type="radio" id="colorBlack" name="color" value="Black">
+          <label for="colorBlack">Black</label>
+          <input type="radio" id="colorWhite" name="color" value="White">
+          <label for="colorWhite">White</label>
+          
+          <button onclick="submitOptions()" class="submit-button">submit</button>
+          
+          <textarea id="selectedOptions" rows="2" cols="30" readonly></textarea>
+          <button onclick="copyToClipboard()" id="copyBtn" style="display: none;">Copy to clipboard</button>
+
+          
+          <p id="hiddenText" style="display: none;">To proceed with the order, copy the above details and paste them in our instagram DM's with the button below.</p>
+          <a href="https://ig.me/m/dotcombubble_/" target="_blank" id="hiddenInstagram" class="instagram-button" style="display: none;">instagram DM's</a>
+      </div>
+  </div>
+  
+
+  <script>
+      let slideIndex = 1;
+    showSlides(slideIndex);
+  
+    function changeSlide(n) {
+      showSlides(slideIndex += n);
+    }
+  
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+  
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+
+      // Function to open the modal
+      function openModal() {
+          document.getElementById('myModal').style.display = 'block';
+      }
+  
+      // Function to close the modal
+      function closeModal() {
+          document.getElementById('myModal').style.display = 'none';
+      }
+  
+      // Function to submit options and display in the text area
+      function submitOptions() {
+    const sizeOptions = document.querySelector('input[name="size"]:checked');
+    const colorOptions = document.querySelector('input[name="color"]:checked');
+    
+    if (sizeOptions && colorOptions) {
+        const selectedSize = sizeOptions.value;
+        const selectedColor = colorOptions.value;
+        const textArea = document.getElementById('selectedOptions');
+        textArea.value = `n*ke-counterfeit\nSize: ${selectedSize}, Color: ${selectedColor}`;
+        document.getElementById('copyBtn').style.display = 'block';
+        document.getElementById('hiddenText').style.display = 'block'; // Show the hidden paragraph
+        document.getElementById('hiddenInstagram').style.display = 'block'; // Show the hidden Instagram button
+    }
+}
+  
+      // Function to copy text to clipboard
+      function copyToClipboard() {
+          const textArea = document.getElementById('selectedOptions');
+          textArea.select();
+          document.execCommand('copy');
+          alert('Copied to clipboard!');
+      }
+  </script>
+ 
+</body>
+</html>
+

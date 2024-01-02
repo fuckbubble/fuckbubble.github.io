@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+  <div id="dwm-bar">
+    <div>///</div>
+    <div id="clock"></div>
+  </div>
+
+  <div id="logo">
+ <img src="logo.gif" alt="Logo" >
+  </div>
+  <div id="password-form">
+    <h2></h2>
+    <p>please enter the password to access the store ></p>
+    <form onsubmit="checkPassword(event)">
+      <input type="password" id="password" placeholder="pswd" required>
+      <button type="submit">enter</button>
+    </form>
+    <p id="message">♡ ₊˚・₊✧⋆⭒˚｡⋆no ♡⋆｡° ₊˚ʚ ᗢ₊˚✧ ﾟ</p>
+  </div>
+
+  <div id="instagram-icon">
+    <a href="https://www.instagram.com/dotcombubble_/" target="_blank">
+      <img src="instagram.png" alt="Instagram" />
+    </a>
+  </div>
+  <div id="transition">
+    <center><img src="loading.gif" alt="Loading..." width="1200"> </center>
+  </div>
+
+  <script>
+    function checkPassword(event) {
+      event.preventDefault();
+      var enteredPassword = document.getElementById('password').value;
+      var correctPassword = 'lanciadelta';
+
+      if (enteredPassword === correctPassword) {
+        document.getElementById('transition').style.display = 'block'; // Show transition
+        setTimeout(function () {
+          window.location.href = 'index.html';
+        }, 1000); // Redirect after 2 blinks (0.2s * 2)
+      } else {
+        document.getElementById('message').style.display = 'block';
+      }
+    }
+
+  </script>
+  <script src="cock.js"></script>
+</body>
+</html>

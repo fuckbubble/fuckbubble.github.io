@@ -9,9 +9,11 @@ body {
   padding: 0;
   margin-left: 20px;
   padding-bottom: 50px;
+
+}
+body, header, footer, #products, #dwm-bar, .modal-content, .size-options, .instagram-button, button, input, h1, h2, h3, h4, h5, h6, p, span, a {
   text-shadow: 1px 1px 10px #000000;
 }
-
 /* Header styles */
 header {
 text-align: center;

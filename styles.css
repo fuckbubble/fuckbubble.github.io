@@ -164,22 +164,33 @@ font-size: 14px;
 
 /* Adjust t-shirt image size */
 .slide img {
-  width: 60%; /* Adjusted image width to fit container */
+  width: 100%; /* Increase image width */
+  max-width: 600px; /* Increased max width for larger images */
   height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto; /* Center the images */
+  border-radius: 10px; /* Rounded image corners */
 }
 
 /* Slider styles */
 .slides {
-  display: flex; /* Ensures the images align in a row */
-  overflow: hidden; /* Hides overflow images */
+  display: flex;
+  overflow: hidden;
   position: relative;
+  width: 100%; /* Use 100% of the available width */
+  max-width: 100%; /* Ensure it doesn't exceed the screen width */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0; /* Remove padding */
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
 }
-
 .slide {
   min-width: 100%; /* Each slide occupies full width */
+  transition: transform 0.5s ease-in-out; /* Smooth slide transition */
 }
 
 /* Fade effect animation */
@@ -190,7 +201,7 @@ font-size: 14px;
 
 @keyframes fade {
   from {
-    opacity: .4;
+    opacity: 0.4;
   }
   to {
     opacity: 1;
@@ -202,42 +213,34 @@ font-size: 14px;
   cursor: pointer;
   position: absolute;
   top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
   color: white;
+  background-color: rgba(0, 0, 0, 0.4); /* Subtle background */
   font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  z-index: 1; /* Ensure navigation is above the slides */
+  font-size: 24px; /* Adjusted font size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  border: 1px solid white; /* Border for visibility */
+  z-index: 2; /* Ensure navigation is above the slides */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .prev {
-  left: 0;@media screen and (max-width: 768px) {
-      /* Adjust logo size for mobile */
-      #logo img {
-        width: 200px; /* Modify the width as needed */
-      }
-    
-      /* Center and resize t-shirt images */
-      .slide img {
-        width: 80%; /* Adjusted image width to fit container */
-        max-width: 300px; /* Set maximum width */
-        height: auto;
-        display: block;
-        margin: 0 auto; /* Center the images */
-      }
-    
-      /* Slider navigation buttons */
-      .prev, .next {
-        font-size: 16px; /* Decreased button size */
-      }
-    }
+  left: 20px; /* Adjust spacing for PC screens */
 }
 
 .next {
-  right: 0;
+  right: 20px; /* Adjust spacing for PC screens */
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(255, 255, 255, 0.6); /* Lighten background on hover */
+  color: black; /* Invert text color on hover */
 }
 
 @media screen and (max-width: 768px) {
@@ -248,16 +251,36 @@ font-size: 14px;
 
   /* Center and resize t-shirt images */
   .slide img {
-    width: 80%; /* Adjusted image width to fit container */
-    max-width: 300px; /* Set maximum width */
+    width: 100%; /* Adjusted image width to fit container */
+    max-width: none;
     height: auto;
     display: block;
     margin: 0 auto; /* Center the images */
   }
+  .slides {
+    width: 90%; /* Adjust width as needed */
+    max-width: 100%; /* Ensure it doesn’t exceed the screen width */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
+    padding: 0; /* Remove padding if any */
+  }
 
   /* Slider navigation buttons */
   .prev, .next {
-    font-size: 16px; /* Decreased button size */
+    font-size: 16px; /* Smaller buttons for mobile */
+    width: 25px;
+    height: 25px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .slides {
+    max-width: 60%; /* Center slideshow for larger screens */
+  }
+
+  .prev, .next {
+    font-size: 28px; /* Larger buttons for desktop */
+    width: 50px;
+    height: 50px;
   }
 }
 .modal {
@@ -274,11 +297,11 @@ font-size: 14px;
 
 /* Modal content */
 .modal-content {
-  background-color: #000; /* Black background */
+  background-color: #222; /* Black background */
   color: white; /* White font color */
-  margin: 10% auto; /* Adjusted margin */
-  padding: 20px;
-  border-radius: 10px; /* Rounded corners */
+  margin: 5% auto; /* Adjusted margin */
+  padding: 30px;
+  border-radius: 15px; /* Rounded corners */
   width: 80%; /* 80% width */
   max-width: 400px; /* Max width for smaller screens */
 }
@@ -301,20 +324,28 @@ font-size: 14px;
 /* Size options styling */
 .size-options {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 20px;
+  gap: 15px;
 }
 
 .size-option {
   background-color: #333;
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.size-option:hover {
+  background-color: white;
+  color: black;
 }
 .submit-button {
   padding: 10px 20px;

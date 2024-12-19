@@ -9,6 +9,7 @@ body {
   padding: 0;
   margin-left: 20px;
   padding-bottom: 50px;
+  text-shadow: 1px 1px 10px #000000;
 }
 
 /* Header styles */

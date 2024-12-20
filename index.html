@@ -11,6 +11,60 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
 </head>
 <body>
+  <!-- Minimalistic Autoplay MP3 Player -->
+<audio id="audioPlayer" autoplay loop>
+    <source src="https://samplelib.com/lib/preview/mp3/sample-9s.mp3" type="audio/mpeg">
+    Your browser does not suppor  t the audio element.
+  </audio>
+  
+  <div id="muteButton" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  ">
+    <svg id="unmuteIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
+      <polygon points="4 9 9 9 12 6 12 18 9 15 4 15"></polygon>
+      <line x1="15" y1="9" x2="19" y2="13"></line>
+      <line x1="19" y1="9" x2="15" y2="13"></line>
+    </svg>
+    <svg id="muteIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none; width: 24px; height: 24px;">
+      <polygon points="4 9 9 9 12 6 12 18 9 15 4 15"></polygon>
+    </svg>
+  </div>
+  
+  <script>
+    const audioPlayer = document.getElementById('audioPlayer');
+    const muteButton = document.getElementById('muteButton');
+    const muteIcon = document.getElementById('muteIcon');
+    const unmuteIcon = document.getElementById('unmuteIcon');
+  
+    // Set initial state
+    let isMuted = false;
+  
+    // Toggle mute/unmute
+    muteButton.addEventListener('click', () => {
+      isMuted = !isMuted;
+      audioPlayer.muted = isMuted;
+  
+      // Toggle icons
+      muteIcon.style.display = isMuted ? 'block' : 'none';
+      unmuteIcon.style.display = isMuted ? 'none' : 'block';
+    });
+  </script>
+   <!-- Minimalistic Autoplay MP3 Player end -->
+  
   <header>
     <div id="dwm-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
       <div>///</div>

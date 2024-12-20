@@ -5,7 +5,6 @@ body {
   background-repeat: repeat;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
-  margin: 0;
   padding: 0;
   margin-left: 20px;
   padding-bottom: 50px;
@@ -182,11 +181,10 @@ font-size: 14px;
   position: relative;
   width: 100%; /* Use 100% of the available width */
   max-width: 100%; /* Ensure it doesn't exceed the screen width */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0; /* Remove padding */
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto; /* Center the container */
+  justify-content: center; /* Ensure content is centered */
+  align-items: center; /* Align vertically */
+  padding: 0;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
@@ -254,25 +252,22 @@ font-size: 14px;
 
   /* Center and resize t-shirt images */
   .slide img {
-    width: 100%; /* Adjusted image width to fit container */
-    max-width: none;
+    width: 100%; /* Ensure the image fits the container */
     height: auto;
     display: block;
-    margin: 0 auto; /* Center the images */
+    margin: 0 auto; /* Center images */
   }
   .slides {
-    width: 90%; /* Adjust width as needed */
-    max-width: 100%; /* Ensure it doesn’t exceed the screen width */
-    margin-left: auto; /* Center the container */
-    margin-right: auto; /* Center the container */
-    padding: 0; /* Remove padding if any */
+    width: 100%; /* Use the full width on mobile */
+    max-width: 90%; /* Slight margin for better alignment */
+    margin: 0 auto; /* Ensure the container is horizontally centered */
   }
 
   /* Slider navigation buttons */
   .prev, .next {
-    font-size: 16px; /* Smaller buttons for mobile */
-    width: 25px;
-    height: 25px;
+    font-size: 16px; /* Smaller size for buttons */
+    width: 30px;
+    height: 30px;
   }
 }
 @media screen and (min-width: 1024px) {

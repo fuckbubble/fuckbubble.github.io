@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+       
+        html, body {
+            background-color: black;
+            overflow: hidden;
+            margin: 0;
+            margin-left: -1px;
+            margin-top: -1px;
+            font-family: 'Roboto', sans-serif; 
+        }
+        
+        #404wrap {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .boopText {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-weight: bold; 
+        }
+
+        #modes {
+            color: white;
+            padding: 10px;
+            border: solid thin white;
+            font-size: 10pt;
+            float: left;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+  <BR>
+  <BR>
+  <CENTER>
+  <a href="index.html">
+        <img src="logo.gif" alt="Logo" width="300"></a></CENTER>
+
+    <div id="404wrap"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        window.setInterval(function() {
+            var life = $("#life").val();
+            var top = randNum();
+            var left = randNum();
+            var size = randomSize();
+            var id = top.toString() + left.toString();
+            if ($("#usefade").is(':checked')) {
+                $("#404wrap").append("<span id='" + id + "' style='color:" + randomColor() + ";font-size:" + size + "pt;top:" + top + "%;left:" + left + "%;' class='boopText'>" + randomMessage() + "</span>").hide().fadeIn(150);
+            } else {
+                $("#404wrap").append("<span id='" + id + "' style='color:" + randomColor() + ";font-size:" + size + "pt;top:" + top + "%;left:" + left + "%;' class='boopText'>" + randomMessage() + "</span>");
+            }
+            setTimeout(function() {
+                $("#" + id).remove();
+            }, life);
+        }, 200);
+
+        function randomMessage() {
+            var messages = ['OH NO 404!', '404', 'aw snap, wrong page retard', '404 error!', 'yoU got losT!', "You're not supposed to be here!", "You're lost!", 'Wrong page!', 'fuck you', 'not found!', 'whoops :(!', 'GO THE FUCK BACK'];
+            return messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        function randomColor() {
+            return '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+        }
+
+        function randomSize() {
+            return Math.floor(Math.random() * (60 - 5 + 1) + 1);
+        }
+
+        function randNum() {
+            return Math.floor(Math.random() * (95 - 5 + 1) + 1);
+        }
+    </script>
+
+</body>
+</html>

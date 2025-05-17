@@ -17,7 +17,11 @@ header {
 text-align: center;
 margin-top: 5px; /* Decreased space */
 }
-
+.star {
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Apple Color Emoji", "Symbola", sans-serif;
+  color: white;
+  text-shadow: 0 0 5px white;
+}
 /* Product grid styles */
 #products {
 display: grid;
